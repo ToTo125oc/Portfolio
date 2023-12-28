@@ -1,0 +1,13 @@
+version: "3.8"
+
+services:
+  postgres:
+    image: postgres:16.1-alpine
+    ports:
+      - 5432:5432
+    volumes:
+      - ~/apps/postgres:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=b^3@LLdmtjDQC*
+      - POSTGRES_USER=admin_portfolio-db
+      - POSTGRES_DB=portfolio_db
