@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Projet;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Storage;
 use Parsedown;
 
@@ -15,7 +16,8 @@ class ProjetsController extends Controller
     public function index()
     {
         $projets = Projet::all();
-        return view('projets.index',['projets'=>$projets]);
+        $reseaux = Route('reseaux.index');
+        return view('projets.index',['projets'=>$projets,'reseaux'=>$reseaux]);
     }
 
     /**
