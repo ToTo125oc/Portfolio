@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Projet;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Storage;
 use Parsedown;
 
@@ -15,7 +16,8 @@ class ProjetsController extends Controller
     public function index()
     {
         $projets = Projet::all();
-        return view('projets.index',['projets'=>$projets]);
+        $reseaux = Route('reseaux.index');
+        return view('projets.index',['projets'=>$projets,'reseaux'=>$reseaux]);
     }
 
     /**
@@ -84,7 +86,7 @@ class ProjetsController extends Controller
             $file = $request->file('imageProjet');
             $nom = sprintf('%s_%d.%s','imageProjet', time(), $file->extension());
             $file->storeAs('projets',$nom);
-            $projet->url = "projets/".$nom;
+            $projet->imageProjet = "projets/".$nom;
         }
         $projet->save();
         return redirect()->route('projets.index');
@@ -97,7 +99,7 @@ class ProjetsController extends Controller
     {
         $projet = Projet::find($id);
         if($request->delete == "Supprimer"){
-            if (isset($image->imageProjet)) {
+            if (isset($projet->imageProjet)) {
                 Storage::delete($projet->imageProjet);
             }
             $projet->delete();
