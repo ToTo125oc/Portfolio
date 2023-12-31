@@ -78,6 +78,9 @@ class ReseauController extends Controller
         $reseau->nom = $request->nom;
         $reseau->urlReseau = $request->urlReseau;
         if($request->hasFile('imageReseau') && $request->file('imageReseau')->isValid()){
+            if (isset($reseau->imageProjet)) {
+                Storage::delete($reseau->imageReseau);
+            }
             $file = $request->file('imageReseau');
             $nom = sprintf('%s_%d.%s','imageReseau', time(), $file->extension());
             $file->storeAs('reseaux',$nom);

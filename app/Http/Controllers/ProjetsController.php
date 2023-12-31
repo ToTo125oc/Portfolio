@@ -16,8 +16,7 @@ class ProjetsController extends Controller
     public function index()
     {
         $projets = Projet::all();
-        $reseaux = Route('reseaux.index');
-        return view('projets.index',['projets'=>$projets,'reseaux'=>$reseaux]);
+        return view('projets.index',['projets'=>$projets]);
     }
 
     /**
@@ -45,7 +44,7 @@ class ProjetsController extends Controller
             $file = $request->file('imageProjet');
             $nom = sprintf('%s_%d.%s','imageProjet', time(), $file->extension());
             $file->storeAs('projets',$nom);
-            $projet->url = "projets/".$nom;
+            $projet->imageProjet = "projets/".$nom;
         }
         $projet->save();
         return redirect()->route('projets.index');
@@ -83,6 +82,9 @@ class ProjetsController extends Controller
         $projet->titre = $request->titre;
         $projet->contenu = $request->contenu;
         if($request->hasFile('imageProjet') && $request->file('imageProjet')->isValid()){
+            if (isset($projet->imageProjet)) {
+                Storage::delete($projet->imageProjet);
+            }
             $file = $request->file('imageProjet');
             $nom = sprintf('%s_%d.%s','imageProjet', time(), $file->extension());
             $file->storeAs('projets',$nom);
