@@ -84,7 +84,7 @@ class ProjetsController extends Controller
             $file = $request->file('imageProjet');
             $nom = sprintf('%s_%d.%s','imageProjet', time(), $file->extension());
             $file->storeAs('projets',$nom);
-            $projet->url = "projets/".$nom;
+            $projet->imageProjet = "projets/".$nom;
         }
         $projet->save();
         return redirect()->route('projets.index');
@@ -97,7 +97,7 @@ class ProjetsController extends Controller
     {
         $projet = Projet::find($id);
         if($request->delete == "Supprimer"){
-            if (isset($image->imageProjet)) {
+            if (isset($projet->imageProjet)) {
                 Storage::delete($projet->imageProjet);
             }
             $projet->delete();
