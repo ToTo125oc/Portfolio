@@ -1,6 +1,10 @@
 <?php
 
+use App\Http\Controllers\CompetenceController;
+use App\Http\Controllers\ProjetsController;
+use App\Http\Controllers\ReseauController;
 use Illuminate\Support\Facades\Route;
+use Laravel\Fortify\Fortify;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +20,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::resource('/projets', ProjetsController::class);
+Route::resource('/reseaux', ReseauController::class);
+Route::resource('/competences', CompetenceController::class);
+
+Route::get('/home', function () {
+    return view('competences.index');
+})->middleware(['auth'])->name('home');

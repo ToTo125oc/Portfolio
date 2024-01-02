@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Projet extends Model
 {
-    public $table = "reseaux";
+    
     
     use HasFactory;
 }

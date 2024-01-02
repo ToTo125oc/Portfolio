@@ -36,9 +36,11 @@ class ProjetsController extends Controller
             'titre'=>'required',
             'contenu'=>'required',
             'imageProjet'=>'required',
+            'resume'=>'required',
         ]);
         $projet = new Projet();
         $projet->titre = $request->titre;
+        $projet->resume = $request->resume;
         $projet->contenu = $request->contenu;
         if($request->hasFile('imageProjet') && $request->file('imageProjet')->isValid()){
             $file = $request->file('imageProjet');
@@ -75,11 +77,13 @@ class ProjetsController extends Controller
     {
         $this->validate($request,[
             'titre'=>'required',
+            'resume'=>'required',
             'contenu'=>'required',
             'imageProjet'=>'required',
         ]);
         $projet = Projet::find($id);
         $projet->titre = $request->titre;
+        $projet->resume = $request->resume;
         $projet->contenu = $request->contenu;
         if($request->hasFile('imageProjet') && $request->file('imageProjet')->isValid()){
             if (isset($projet->imageProjet)) {
@@ -100,12 +104,10 @@ class ProjetsController extends Controller
     public function destroy(Request $request, string $id)
     {
         $projet = Projet::find($id);
-        if($request->delete == "Supprimer"){
             if (isset($projet->imageProjet)) {
                 Storage::delete($projet->imageProjet);
             }
             $projet->delete();
-        }
         return redirect()->route('projets.index');
     }
 }
