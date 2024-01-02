@@ -4,6 +4,7 @@ use App\Http\Controllers\CompetenceController;
 use App\Http\Controllers\ProjetsController;
 use App\Http\Controllers\ReseauController;
 use Illuminate\Support\Facades\Route;
+use Laravel\Fortify\Fortify;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,3 +24,7 @@ Route::get('/', function () {
 Route::resource('/projets', ProjetsController::class);
 Route::resource('/reseaux', ReseauController::class);
 Route::resource('/competences', CompetenceController::class);
+
+Route::get('/home', function () {
+    return view('competences.index');
+})->middleware(['auth'])->name('home');

@@ -33,10 +33,10 @@ class CompetenceController extends Controller
         $this->validate($request,[
             'nom'=>'required',
             'description'=>'required',
-            'imageCompetence'=>'required',
+            'imageCompetence'=>'required'
         ]);
         $competence = new Competence();
-        $competence->titre = $request->titre;
+        $competence->nom = $request->nom;
         $competence->description = $request->description;
         if($request->hasFile('imageCompetence') && $request->file('imageCompetence')->isValid()){
             $file = $request->file('imageCompetence');
@@ -76,7 +76,7 @@ class CompetenceController extends Controller
             'imageCompetence'=>'required',
         ]);
         $competence = Competence::find($id);
-        $competence->titre = $request->titre;
+        $competence->nom = $request->nom;
         $competence->description = $request->description;
         if($request->hasFile('imageCompetence') && $request->file('imageCompetence')->isValid()){
             if (isset($competence->imageProjet)) {
@@ -97,12 +97,10 @@ class CompetenceController extends Controller
     public function destroy(Request $request, string $id)
     {
         $competence = Competence::find($id);
-        if($request->delete == "Supprimer"){
-            if (isset($competence->imageProjet)) {
-                Storage::delete($competence->imageProjet);
-            }
-            $competence->delete();
+        if (isset($competence->imageProjet)) {
+            Storage::delete($competence->imageProjet);
         }
-        return redirect()->route('projets.index');
+        $competence->delete();
+        return redirect()->route('competences.index');
     }
 }

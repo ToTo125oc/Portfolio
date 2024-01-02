@@ -8,12 +8,18 @@ use Illuminate\View\Component;
 
 class formCompetence extends Component
 {
+
+    public $modif;
+    public $competence;
+    public $route;
     /**
      * Create a new component instance.
      */
-    public function __construct()
+    public function __construct($route, $modif, $competence)
     {
-        //
+        $this->route=$route;
+        $this->competence=$competence;
+        $this->modif=$modif;
     }
 
     /**
