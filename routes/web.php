@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CompetenceController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ProjetsController;
 use App\Http\Controllers\ReseauController;
 use Illuminate\Support\Facades\Route;
@@ -24,6 +25,10 @@ Route::get('/', function () {
 Route::resource('/projets', ProjetsController::class);
 Route::resource('/reseaux', ReseauController::class);
 Route::resource('/competences', CompetenceController::class);
+
+
+Route::get('/contact',[ContactController::class, 'index'])->name('contact.index');
+Route::post('/contact',[ContactController::class, 'sendMail'])->name('contact.sendMail');
 
 Route::get('/home', function () {
     return view('competences.index');
