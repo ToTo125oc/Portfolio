@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AccueillController;
 use App\Http\Controllers\CompetenceController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ProjetsController;
@@ -18,9 +19,9 @@ use Laravel\Fortify\Fortify;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [AccueillController::class,'index'])->name('index');
+Route::get('/param', [AccueillController::class,'param'])->name('param');
+Route::put('/param', [AccueillController::class,'update'])->name('param.update');
 
 Route::resource('/projets', ProjetsController::class);
 Route::resource('/reseaux', ReseauController::class);
@@ -31,5 +32,5 @@ Route::get('/contact',[ContactController::class, 'index'])->name('contact.index'
 Route::post('/contact',[ContactController::class, 'sendMail'])->name('contact.sendMail');
 
 Route::get('/home', function () {
-    return view('competences.index');
+    return redirect()->route('competences.index');
 })->middleware(['auth'])->name('home');
