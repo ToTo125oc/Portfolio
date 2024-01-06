@@ -17,9 +17,9 @@ class CompetenceFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => $this->faker()->name(),
-            'description' => $this->faker()->text(),
-            'imageDescription' => $this->faker()->url(),
+            'name' => $this->faker->name(),
+            'description' => $this->faker->text(),
+            'imageDescription' => $this->faker->url(),
         ];
     }
 }
