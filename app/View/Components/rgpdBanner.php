@@ -6,21 +6,14 @@ use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class layoutMain extends Component
+class rgpdBanner extends Component
 {
-
-    public $avatar;
-    public $nomPrenom;
-
-    public $pageActuel;
     /**
      * Create a new component instance.
      */
-    public function __construct($avatar, $nomPrenom, $pageActuel)
+    public function __construct()
     {
-        $this->avatar=$avatar;
-        $this->nomPrenom=$nomPrenom;
-        $this->pageActuel=$pageActuel;
+        //
     }
 
     /**
@@ -28,6 +21,6 @@ class layoutMain extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.layout-main');
+        return view('components.rgpd-banner');
     }
 }

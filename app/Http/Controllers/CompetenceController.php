@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Competence;
+use App\Models\Setting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -14,7 +15,8 @@ class CompetenceController extends Controller
     public function index()
     {
         $competences = Competence::all();
-        return view("competences.index",['competences'=>$competences]);
+        $setting = Setting::find(1);
+        return view("competences.index",['competences'=>$competences,'setting'=>$setting]);
     }
 
     /**
@@ -54,7 +56,8 @@ class CompetenceController extends Controller
     public function show(string $id)
     {
         $competence = Competence::find($id);
-        return view("competences.show",['competence'=>$competence]);
+        $setting = Setting::find(1);
+        return view("competences.show",['competence'=>$competence,'setting'=>$setting]);
     }
 
     /**

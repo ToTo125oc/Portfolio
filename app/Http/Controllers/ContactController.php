@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Mail\Contact;
+use App\Models\Setting;
 use App\Rules\ReCaptcha;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -10,7 +11,8 @@ use Illuminate\Support\Facades\Mail;
 class ContactController extends Controller
 {
     public function index(){
-        return view('email.contact');
+        $setting = Setting::find(1);
+        return view('email.contact',['setting'=>$setting]);
     }
 
     public function sendMail(Request $request){

@@ -5,11 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Projet extends Model
+class Setting extends Model
 {
     use HasFactory;
-
-    function reseaux(){
-        return $this->hasMany(Reseau::class);
-    }
 }

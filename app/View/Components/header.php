@@ -8,12 +8,18 @@ use Illuminate\View\Component;
 
 class header extends Component
 {
+
+    public $avatar;
+    public $nomPrenom;
+    public $pageActuel;
     /**
      * Create a new component instance.
      */
-    public function __construct()
+    public function __construct($avatar, $nomPrenom, $pageActuel)
     {
-        //
+        $this->avatar=$avatar;
+        $this->nomPrenom=$nomPrenom;
+        $this->pageActuel=$pageActuel;
     }
 
     /**

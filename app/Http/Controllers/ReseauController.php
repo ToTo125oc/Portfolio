@@ -38,12 +38,8 @@ class ReseauController extends Controller
         $reseau = new Reseau();
         $reseau->nom = $request->nom;
         $reseau->urlReseau = $request->urlReseau;
-        if($request->hasFile('imageReseau') && $request->file('imageReseau')->isValid()){
-            $file = $request->file('imageReseau');
-            $nom = sprintf('%s_%d.%s','imageReseau', time(), $file->extension());
-            $file->storeAs('reseaux',$nom);
-            $reseau->imageReseau = "reseaux/".$nom;
-        }
+        $reseau->imageReseau = $request->imageReseau;
+        $reseau->competence_id = $request->competence_id;
         $reseau->save();
         return redirect()->route('projets.index');
     }
@@ -77,15 +73,9 @@ class ReseauController extends Controller
         $reseau = Reseau::find($id);
         $reseau->nom = $request->nom;
         $reseau->urlReseau = $request->urlReseau;
-        if($request->hasFile('imageReseau') && $request->file('imageReseau')->isValid()){
-            if (isset($reseau->imageProjet)) {
-                Storage::delete($reseau->imageReseau);
-            }
-            $file = $request->file('imageReseau');
-            $nom = sprintf('%s_%d.%s','imageReseau', time(), $file->extension());
-            $file->storeAs('reseaux',$nom);
-            $reseau->imageReseau = "reseaux/".$nom;
-        }
+        $reseau->imageReseau = $request->imageReseau;
+        $reseau->competence_id = $request->competence_id;
+
         $reseau->save();
         return redirect()->route('projets.index');
     }
@@ -97,9 +87,6 @@ class ReseauController extends Controller
     {
         $reseau = Reseau::find($id);
         if($request->delete == "Supprimer"){
-            if (isset($reseau->imageProjet)) {
-                Storage::delete($reseau->imageReseau);
-            }
             $reseau->delete();
         }
         return redirect()->route('projets.index');

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Projet;
+use App\Models\Setting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Storage;
@@ -16,7 +17,8 @@ class ProjetsController extends Controller
     public function index()
     {
         $projets = Projet::all();
-        return view('projets.index',['projets'=>$projets]);
+        $setting = Setting::find(1);
+        return view('projets.index',['projets'=>$projets,'setting'=>$setting]);
     }
 
     /**
@@ -59,7 +61,8 @@ class ProjetsController extends Controller
     {
         $projet = Projet::find($id);
         $parsedown = new Parsedown();
-        return view('projets.show',['projet'=>$projet, 'parsedown'=>$parsedown]);
+        $setting = Setting::find(1);
+        return view('projets.show',['projet'=>$projet, 'parsedown'=>$parsedown,'setting'=>$setting]);
     }
 
     /**

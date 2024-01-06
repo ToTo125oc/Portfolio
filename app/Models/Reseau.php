@@ -9,4 +9,8 @@ class Reseau extends Model
 {
     public $table = "reseaux";
     use HasFactory;
+
+    function competence(){
+        return $this->belongsTo(Competence::class);
+    }
 }
