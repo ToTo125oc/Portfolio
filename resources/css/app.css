@@ -1,4 +1,58 @@
 @tailwind base;
-  
 @tailwind components;
-@tailwind utilities
+@tailwind utilities;
+
+
+@layer components{
+    .title{
+        @apply text-transparent bg-clip-text bg-gradient-to-r to-emerald-600 from-sky-400;
+    }
+    .title-home{
+        @apply  absolute inset-0 flex items-center justify-center text-white px-4 text-5xl md:text-7xl font-bold  transition-colors duration-300 ease-in-out hover:text-transparent  hover:bg-clip-text hover:bg-gradient-to-r hover:to-emerald-600 hover:from-sky-400;
+    }
+    .button{
+        @apply text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2;
+    }
+    .theme{
+        @apply bg-white dark:bg-zinc-900;
+    }
+    .theme-text{
+        @apply m-2 dark:text-white text-zinc-900;
+    }
+    .theme-nav{
+        @apply font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white dark:bg-zinc-800 md:dark:bg-zinc-900 dark:border-zinc-700;
+    }
+    .field-border{
+        @apply block mb-2 text-sm font-medium text-zinc-900 dark:text-gray-300;
+    }
+    .field{
+        @apply block p-2.5 w-full text-sm text-zinc-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300  dark:bg-zinc-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white;
+    }
+    .image-home{
+        @apply h-auto max-w-lg transition-all duration-300 rounded-lg cursor-pointer filter grayscale hover:grayscale-0;
+    }
+    .nav-select{
+        @apply block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500;
+    }
+    .nav-no-select{
+        @apply block py-2 px-3 text-zinc-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-zinc-700 dark:hover:text-white md:dark:hover:bg-transparent;
+    }
+    .nav-deco{
+        @apply block py-2 px-3 text-white bg-gradient-to-br from-pink-500 to-orange-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800 font-medium rounded-lg text-sm text-center;
+    }
+    .button-delete{
+        @apply px-5 py-2.5 me-2 inline-flex items-center text-white bg-gradient-to-br from-pink-500 to-orange-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800 font-medium rounded-lg text-sm text-center;
+    }
+    .projet-1{
+        @apply relative p-1 overflow-hidden text-sm font-medium text-zinc-900 rounded-lg bg-gradient-to-br from-purple-600 to-blue-500 group-hover:from-purple-600 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800;
+    }
+    .projet-hover-1{
+        @apply relative  transition-all ease-in duration-100 bg-white dark:bg-zinc-900 rounded-md ;
+    }
+    .projet-2{
+        @apply relative p-1 overflow-hidden text-sm font-medium text-zinc-900 rounded-lg bg-gradient-to-br from-red-200 via-red-300 to-yellow-200 group-hover:from-red-200 group-hover:via-red-300 group-hover:to-yellow-200 dark:text-white dark:hover:text-gray-900 focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400;
+    }
+    .projet-hover-2{
+        @apply relative  transition-all ease-in duration-75 bg-white dark:bg-zinc-900 rounded-md;
+    }
+}
