@@ -14,17 +14,17 @@
         </div>
 
         <div class="mb-5">
-            <label for="jobRechercher" class="field-border">Le nom du job</label>
+            <label for="jobRechercher" class="field-border">Le nom du job 1</label>
             <input type="text" id="jobRechercher" name="jobRechercher" class="field" value="{{$setting->jobRechercher}}" required>
         </div>
 
         <div class="mb-5">
-            <label for="jobRechercher2" class="field-border">Le nom du job</label>
+            <label for="jobRechercher2" class="field-border">Le nom du job 2</label>
             <input type="text" id="jobRechercher2" name="jobRechercher2" class="field" value="{{$setting->jobRechercher2}}" required>
         </div>
 
         <div class="mb-5">
-            <label for="nomPrenom" class="field-border">Le nom du job</label>
+            <label for="nomPrenom" class="field-border">Le nom du portfolio</label>
             <input type="text" id="nomPrenom" name="nomPrenom" class="field" value="{{$setting->nomPrenom}}" required>
         </div>
 

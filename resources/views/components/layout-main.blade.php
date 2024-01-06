@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Portfolio Thomas</title>
+    <link rel="shortcut icon" href="{{Storage::url($avatar)}}" />
     @vite(['resources/js/app.js','resources/css/app.css'])
 </head>
 <body class="theme">
