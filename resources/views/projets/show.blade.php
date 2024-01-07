@@ -1,4 +1,4 @@
-<x-layoutMain :avatar='$setting->imageAvatar'>
+<x-layoutMain :avatar="$setting->imageAvatar" :nomPrenom="$setting->nomPrenom" pageActuel="projets">
     @if($projet)
     <div class="flex flex-wrap place-items-center max-w-screen-xl mx-auto p-4">
             <div class="m-5 flex flex-col w-full">
@@ -19,5 +19,5 @@
             <p>Pas de projet</p>
             @endif
     </div>
-    
+
 </x-layoutMain>
