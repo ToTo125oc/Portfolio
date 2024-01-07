@@ -14,6 +14,16 @@
         </div>
 
         <div class="mb-5">
+            <label class="field-border" for="cvFrench">Charger un fichier pour le cv en français</label>
+            <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"  id="cvFrench" name="cvFrench" type="file">
+        </div>
+
+        <div class="mb-5">
+            <label class="field-border" for="cvEnglish">Charger un fichier pour le cv en anglais</label>
+            <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"  id="cvEnglish" name="cvEnglish" type="file">
+        </div>
+
+        <div class="mb-5">
             <label for="jobRechercher" class="field-border">Le nom du job 1</label>
             <input type="text" id="jobRechercher" name="jobRechercher" class="field" value="{{$setting->jobRechercher}}" required>
         </div>

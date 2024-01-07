@@ -15,6 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('imageAccueil');
             $table->string('imageAvatar');
+            $table->string('cvFrench');
+            $table->string('cvEnglish');
             $table->string('jobRechercher');
             $table->string('jobRechercher2');
             $table->string('nomPrenom');

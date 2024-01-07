@@ -27,6 +27,10 @@
     <span class="title text-4xl mt-4 ml-3 block md:hidden">{{$setting->nomPrenom}}</span>
   </div>
   <div class="flex flex-row">
+  <a href="{{Storage::url($setting->cvFrench)}}" class="button-tel">Télécharger le cv</a>
+    <a href="{{Storage::url($setting->cvEnglish)}}" class="button-tel">Download resume in english</a>
+    </div>
+  <div class="flex flex-row">
   <div class="mt-5">
     <a href="{{Route('competences.index')}}" class="button">Accéder au portfolio</a>
     </div>

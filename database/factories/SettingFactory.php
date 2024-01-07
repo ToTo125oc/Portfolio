@@ -19,6 +19,8 @@ class SettingFactory extends Factory
         return [
             'imageAccueil'=> $this->faker->url(),
             'imageAvatar'=> $this->faker->url(),
+            'cvFrench'=> $this->faker->url(),
+            'cvEnglish'=> $this->faker->url(),
             'jobRechercher'=> $this->faker->name(),
             'jobRechercher2'=> $this->faker->name(),
             'nomPrenom'=> $this->faker->name(),

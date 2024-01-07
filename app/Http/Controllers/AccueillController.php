@@ -43,6 +43,8 @@ class AccueillController extends Controller
         $this->validate($request,[
             'imageAccueil'=>'required',
             'imageAvatar'=>'required',
+            'cvFrench'=>'required',
+            'cvEnglish'=>'required',
             'jobRechercher'=>'required',
             'jobRechercher2'=>'required',
             'nomPrenom'=>'required',
@@ -68,6 +70,24 @@ class AccueillController extends Controller
             $nom = sprintf('%s_%d.%s','imageAvatar', time(), $file->extension());
             $file->storeAs('accueil',$nom);
             $setting->imageAvatar = "accueil/".$nom;
+        }
+        if($request->hasFile('cvFrench') && $request->file('cvFrench')->isValid()){
+            if (isset($setting->cvFrench) && Storage::exists($setting->cvFrench)) {
+                Storage::delete($setting->cvFrench);
+            }
+            $file = $request->file('cvFrench');
+            $nom = sprintf('%s_%d.%s','cvFrench', time(), $file->extension());
+            $file->storeAs('accueil',$nom);
+            $setting->cvFrench = "accueil/".$nom;
+        }
+        if($request->hasFile('cvEnglish') && $request->file('cvEnglish')->isValid()){
+            if (isset($setting->cvEnglish) && Storage::exists($setting->cvEnglish)) {
+                Storage::delete($setting->cvEnglish);
+            }
+            $file = $request->file('cvEnglish');
+            $nom = sprintf('%s_%d.%s','cvEnglish', time(), $file->extension());
+            $file->storeAs('accueil',$nom);
+            $setting->cvEnglish = "accueil/".$nom;
         }
         $setting->save();
         return redirect()->route('index');
